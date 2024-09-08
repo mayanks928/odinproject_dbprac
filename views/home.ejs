@@ -6,14 +6,21 @@
     <title>Home</title>
   </head>
   <body>
-    <!-- <%console.log(usernames,query) %> -->
     <h2>Users:</h2>
     <%if(locals.usernames && usernames.length>0){ %>
     <%usernames.forEach(user=>{%>
     <p><%= user.id %>)<%= user.username %></p>
     <hr />
     <% }) %> <% } %>
-    <a href="/new">Add User</a>
+    <a href="/new">Add User</a><br />
+    <form action="/delete" method="post">
+      <button
+        type="submit"
+        onclick="return confirm('Are you sure you want to delete all usernames?')"
+      >
+        Clear database
+      </button>
+    </form>
     <h2>Search:</h2>
     <form action="/" method="get">
       <label for="search">Enter search term:</label>

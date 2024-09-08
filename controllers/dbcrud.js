@@ -20,3 +20,8 @@ exports.addUserPost = async (req, res) => {
   console.log(`Inserted user:${username}`);
   res.redirect("/");
 };
+exports.clearDatabase = async (req, res) => {
+  await queries.clearDatabase();
+  console.log("Cleared Database");
+  res.redirect("/");
+};

@@ -13,4 +13,7 @@ async function searchPattern(pattern) {
 async function insertUsername(username) {
   await pool.query("INSERT INTO usernames(username) VALUES ($1);", [username]);
 }
-module.exports = { getAllUsers, searchPattern, insertUsername };
+async function clearDatabase() {
+  await pool.query("TRUNCATE TABLE usernames RESTART IDENTITY;");
+}
+module.exports = { getAllUsers, searchPattern, insertUsername, clearDatabase };
