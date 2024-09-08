@@ -1,0 +1,7 @@
+<% if(locals.searchresults && searchresults.length>0){ %>
+<h3>Search Results:</h3>
+<p>Users matching <%=query.search %></p>
+<%searchresults.forEach(user=>{%>
+<p><%= user.id %>)<%= user.username %></p>
+<hr />
+<% }) %> <% } %>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <body>
+    <!-- <%console.log(usernames,query) %> -->
+    <h2>Users:</h2>
+    <%if(locals.usernames && usernames.length>0){ %>
+    <%usernames.forEach(user=>{%>
+    <p><%= user.id %>)<%= user.username %></p>
+    <hr />
+    <% }) %> <% } %>
+    <a href="/new">Add User</a>
+    <h2>Search:</h2>
+    <form action="/" method="get">
+      <label for="search">Enter search term:</label>
+      <input type="text" name="search" />
+      <button type="submit">Search</button>
+      <hr />
+    </form>
+    <%- include('partials/searchresults') %>
+  </body>
+</html>
